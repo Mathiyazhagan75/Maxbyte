@@ -1,7 +1,15 @@
 import React from "react";
 import { DataGrid,GridToolbar} from '@mui/x-data-grid';
 import "./shiftTiming.scss"
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import {useNavigate} from 'react-router-dom';
 const ShiftTime = () => {
+  const navigate=useNavigate();
+  const navigateToAddshift=()=>{
+    navigate('/shift/new');
+  }
     const columns = [
         { 
           field: 'shiftname', 
@@ -22,55 +30,79 @@ const ShiftTime = () => {
           editable: true,
         },
         {
-          field: 'meeting',
-          headerName: 'Frequency',
+          field: 'meetstart',
+          headerName: 'MEETING START TIME',
           flex: 1,
           type: 'time',
           editable: false,
         },
         {
-          field: 'operatorName',
-          headerName: 'Operator Name',
+          field: 'meetend',
+          headerName: 'MEETING END TIME',
           flex: 1,
           editable: true,
          },
          {
-          field: 'completed',
-          headerName: 'Completed',
+          field: 'brk1start',
+          headerName: 'BREAK 1 START TIME',
           flex: 1,
           editable: true,
          },
          {
-          field: 'toticket',
-          headerName: 'To Ticket',
+          field: 'brk1end',
+          headerName: 'BREAK 1 END TIME',
           flex: 1,
           editable: true,
          },
+         {
+          field: 'lnstart',
+          headerName: 'LUNCH START TIME',
+          flex: 1,
+          editable: true,
+         },
+         {
+          field: 'lnend',
+          headerName: 'LUNCH END TIME',
+          flex: 1,
+          editable: true,
+         },
+         {
+          field: 'brk2start',
+          headerName: 'BREAK 2 START TIME',
+          flex: 1,
+          editable: true,
+         },
+         {
+          field: 'brk2end',
+          headerName: 'BREAK 2 END TIME',
+          flex: 1,
+          editable: true,
+         },
+       
       ];
       
       const rows = [
-        { id: 1, },
-        { id: 2, },
-        { id: 3, },
-        { id: 4, },
-        { id: 5, },
-        { id: 6, },
-        { id: 7, },
-        { id: 8, },
-        { id: 9, },
+            //  {
+            //   shiftname: "7:30",
+            //   prodstart: "4.30",
+            //  }
       ]
       
         return (
          <div>
-          <div className="breadcrumb-topic"> <h4>SHIFT TIMINGS</h4> </div>
+          <div className="breadcrumb-topic"> 
+          <h3>SHIFT TIMINGS</h3> 
+          <div class="crud-icons">
+          <AddCircleOutlineIcon style={{ marginLeft :"10px",marginTop:"10px",color:"black"}} onClick={navigateToAddshift}/>
+          <EditIcon style={{color:"black"}}/>
+          <DeleteIcon style={{color:"black"}}/>
+          </div>
+          </div>
            <div className="pm-bc">
             <div style={{ height: 500, width: '100%' }} className="table">
             <div style={{ display: 'flex', height: '100%' }}>
               <div style={{ flexGrow: 1 }}>
-           
             <DataGrid  sx={{
-         
-          
           '& .MuiDataGrid-cell:hover': {
             color: 'primary.main',
           },

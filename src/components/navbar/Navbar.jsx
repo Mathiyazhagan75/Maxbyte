@@ -1,7 +1,11 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom';
 import "./navbar.scss"
-
 const Navbar = () => {
+    const navigate=useNavigate();
+    const navigateToModelConf=()=>{
+      navigate('/model');
+    }
     return (
         <div className='navbar'>
             <div className="nav-title">
@@ -15,7 +19,7 @@ const Navbar = () => {
                     SHIFT CONFIGURATION
                     </span>
                 </li>
-                <li>
+                <li onClick={navigateToModelConf}>
                     <span>
                     MODEL CONFIGURATION
                     </span>
@@ -40,5 +44,4 @@ const Navbar = () => {
         </div>
     )
 }
-
 export default Navbar

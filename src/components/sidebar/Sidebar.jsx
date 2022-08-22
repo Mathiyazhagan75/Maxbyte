@@ -8,13 +8,13 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-const Sidebar = () => {
+const Sidebar = ({children}) => {
     return (
         <div className='sidebar'>
+           <div className='sidebarcontain'>
            <div className="top">
             <span className='logo'>EDGE</span>
            </div>
-           
            <div className="center">
             <ul>
                 <li>
@@ -54,7 +54,10 @@ const Sidebar = () => {
            <div className="bottom">
             <div className="colorOption"></div>
             <div className="colorOption"></div>
-           
+           </div>
+           </div>
+           <div className='sidebarContainer'>
+           <main classname="sticky">{children}</main>
            </div>
         </div>
     )
